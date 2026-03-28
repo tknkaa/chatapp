@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "doyukoto",
+	"name": "chatapp",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2025-09-27",
 	"compatibility_flags": [
@@ -21,7 +21,7 @@
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "prod-doyukoto",
+			"database_name": "prod-chatapp",
 			"database_id": "446a0066-8592-41aa-b9dc-56eaeafd7486"
 		}
 	]

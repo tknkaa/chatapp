@@ -1,6 +1,5 @@
-import { drizzle, DrizzleD1Database } from "drizzle-orm/d1";
+import { drizzle } from "drizzle-orm/better-sqlite3";
+import { DATABASE_URL } from "$env/static/private";
 
-export function getD1(platform: App.Platform) : DrizzleD1Database {
-  const db = drizzle(platform.env.DB)
-  return db
-}
+export const db = drizzle(DATABASE_URL);
+

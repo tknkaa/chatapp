@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { authClient } from '$lib/auth-client';
 	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
 
 	onMount(async () => {
 		const { data: session } = await authClient.getSession();
@@ -16,6 +17,13 @@
 		await authClient.signOut();
 		goto('/');
 	};
+
+	let { data }: { data: PageData } = $props();
 </script>
 
 <button onclick={signout}> Sign out </button>
+
+<h2>Rooms</h2>
+{#each data.rooms as room}
+	<div>{room.rooms.id}</div>
+{/each}

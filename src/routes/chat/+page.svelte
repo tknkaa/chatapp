@@ -31,4 +31,8 @@
 <h2>Users</h2>
 {#each data.users as user}
 	<div>{user.name}</div>
+	<form method="POST">
+		<input name="userId" type="hidden" value={user.id} />
+		<button>create room</button>
+	</form>
 {/each}

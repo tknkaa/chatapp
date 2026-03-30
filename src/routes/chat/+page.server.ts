@@ -2,6 +2,7 @@ import { db } from '$lib/db';
 import { roomMembers, rooms, user } from '$lib/db/schema';
 import type { PageServerLoad } from './$types';
 import { eq, ne } from 'drizzle-orm';
+import type { Actions } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	const currentUserId = locals.user?.id;
@@ -17,3 +18,12 @@ export const load: PageServerLoad = async ({ locals }) => {
 		return { rooms: myRooms, users: users };
 	}
 };
+
+export const actions = {
+	default: async ({ request }) => {
+		// do something here
+		const data = await request.formData();
+		const userId = data.get('userId');
+		console.log(userId);
+	}
+} satisfies Actions;
